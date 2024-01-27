@@ -1,5 +1,3 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
@@ -15,7 +13,8 @@ function App() {
         className="body"
         style={{
           minHeight: "90vh",
-          // height: "90vh",
+          overflow: "auto",
+          background: "whitesmoke",
           width: "100%",
           display: "flex",
           justifyContent: "center",
