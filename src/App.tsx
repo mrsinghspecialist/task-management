@@ -1,7 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Header } from './components/Header/Header';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Header } from "./components/Header/Header";
+import { Footer } from "./components/Footer/Footer";
+import { Login } from "./components/Login/Login";
 
 function App() {
   return (
@@ -9,6 +11,22 @@ function App() {
       <header className="App-header">
         <Header />
       </header>
+      <div
+        className="body"
+        style={{
+          minHeight: "90vh",
+          // height: "90vh",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center",
+        }}
+      >
+        <Login />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }
