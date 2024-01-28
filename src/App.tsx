@@ -1,7 +1,7 @@
 import "./App.css";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
-import { Login } from "./components/Login/Login";
+import { AppContent } from "./components/AppContent/AppContent";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           alignContent: "center",
         }}
       >
-        <Login />
+        <AppContent />
       </div>
       <div>
         <Footer />

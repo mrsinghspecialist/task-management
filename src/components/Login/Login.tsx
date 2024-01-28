@@ -12,7 +12,7 @@ import { setActiveProfile } from "../../store/slices/profileSlice";
 import { useState } from "react";
 import { RegistrationForm } from "../RegistrationForm/RegistrationForm";
 
-export const Login = () => {
+const Login = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const dispatch = useDispatch();
 
@@ -100,3 +100,5 @@ export const Login = () => {
     </>
   );
 };
+
+export default Login;
