@@ -18,7 +18,7 @@ const initialState: ProfileState = {
     {
       name: "Admin",
       email: "admin@task.com",
-      password: "Agbdlcid",
+      password: "Ripazha",
       userType: "Admin",
     },
   ],
