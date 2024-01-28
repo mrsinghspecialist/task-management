@@ -38,7 +38,7 @@ export const RegistrationForm = (props: { handleClose: () => void }) => {
         })
       );
       alert("User has been registered successfully.");
-    props.handleClose();
+      props.handleClose();
     }
   };
 
@@ -58,9 +58,7 @@ export const RegistrationForm = (props: { handleClose: () => void }) => {
       [key]: value,
     });
   };
-  useEffect(() => {
-    console.log(formFields);
-  }, [formFields]);
+
   return (
     <div
       style={{
