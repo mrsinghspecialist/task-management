@@ -1,7 +1,66 @@
 import { Box, Button, Card, CardContent, TextField } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  registerProfile,
+  selectAllUsers,
+} from "../../store/slices/profileSlice";
+
+type FormFields = {
+  name: string;
+  email: string;
+  confirmEmail: string;
+  password: string;
+};
 
 export const RegistrationForm = (props: { handleClose: () => void }) => {
+  const allUsers = useSelector(selectAllUsers);
+  const dispatch = useDispatch();
+  const [formFields, setFormFields] = useState<FormFields>({
+    name: "",
+    email: "",
+    confirmEmail: "",
+    password: "",
+  });
+  const handleRegister = () => {
+    const existingUser = allUsers.find(
+      (value) => value.email === formFields.email
+    );
+    if (existingUser) {
+      alert("User already exists");
+    } else {
+      dispatch(
+        registerProfile({
+          email: formFields.email,
+          name: formFields.name,
+          password: formFields.password,
+          userType: "Regular",
+        })
+      );
+      alert("User has been registered successfully.");
+    props.handleClose();
+    }
+  };
+
+  const validateForm = () => {
+    return Boolean(
+      formFields.name &&
+        formFields.email &&
+        formFields.confirmEmail &&
+        formFields.password &&
+        formFields.email === formFields.confirmEmail
+    );
+  };
+
+  const handleChange = (key: keyof FormFields, value: string) => {
+    setFormFields({
+      ...formFields,
+      [key]: value,
+    });
+  };
+  useEffect(() => {
+    console.log(formFields);
+  }, [formFields]);
   return (
     <div
       style={{
@@ -42,22 +101,25 @@ export const RegistrationForm = (props: { handleClose: () => void }) => {
                 label="Name"
                 type="text"
                 variant="standard"
+                onChange={(e) => handleChange("name", e.target.value)}
               />
             </div>
             <div>
               <TextField
                 sx={{ width: "100%" }}
                 label="Email"
-                type="text"
+                type="email"
                 variant="standard"
+                onChange={(e) => handleChange("email", e.target.value)}
               />
             </div>
             <div>
               <TextField
                 sx={{ width: "100%" }}
                 label="Confirm email"
-                type="text"
+                type="email"
                 variant="standard"
+                onChange={(e) => handleChange("confirmEmail", e.target.value)}
               />
             </div>
             <div>
@@ -66,6 +128,7 @@ export const RegistrationForm = (props: { handleClose: () => void }) => {
                 label="Password"
                 type="password"
                 variant="standard"
+                onChange={(e) => handleChange("password", e.target.value)}
               />
             </div>
             <div
@@ -77,16 +140,8 @@ export const RegistrationForm = (props: { handleClose: () => void }) => {
               <Button
                 variant="outlined"
                 color="primary"
-                onClick={() => {
-                  //   dispatch(
-                  //     setActiveProfile({
-                  //       email: "mrsinghspecialist@gmail.com",
-                  //       name: "Sarabjeet Singh",
-                  //       password: "Agbdlcid",
-                  //       userType: "Regular",
-                  //     })
-                  //   );
-                }}
+                disabled={!validateForm()}
+                onClick={handleRegister}
               >
                 Register
               </Button>

@@ -2,19 +2,50 @@ import {
   Box,
   Button,
   Card,
-  CardActions,
   CardContent,
   Modal,
   TextField,
 } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { setActiveProfile } from "../../store/slices/profileSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectActingProfile,
+  selectAllUsers,
+  setActiveProfile,
+} from "../../store/slices/profileSlice";
 import { useState } from "react";
 import { RegistrationForm } from "../RegistrationForm/RegistrationForm";
+import { Navigate, redirect, useNavigate } from "react-router";
 
 const Login = () => {
-  const [openModal, setOpenModal] = useState<boolean>(false);
   const dispatch = useDispatch();
+  const allUsers = useSelector(selectAllUsers);
+  const actingProfile = useSelector(selectActingProfile);
+
+  const [formFields, setFormFields] = useState<{
+    email: string;
+    password: string;
+  }>({
+    email: "",
+    password: "",
+  });
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
+  if (actingProfile.email && actingProfile.userType) {
+    return <Navigate to={"/"} />;
+  }
+
+  const handleLogin = () => {
+    const user = allUsers.find(
+      (value) =>
+        value.email === formFields?.email &&
+        value.password === formFields.password
+    );
+    if (user) {
+      dispatch(setActiveProfile(user));
+    } else {
+      alert("Please check the details.");
+    }
+  };
 
   const handleClose = () => {
     setOpenModal(false);
@@ -46,8 +77,11 @@ const Login = () => {
                 <TextField
                   sx={{ width: "100%" }}
                   label="Email"
-                  type="text"
+                  type="email"
                   variant="standard"
+                  onChange={(e) => {
+                    setFormFields({ ...formFields, email: e.target.value });
+                  }}
                 />
               </div>
               <Box>
@@ -56,6 +90,9 @@ const Login = () => {
                   label="Password"
                   type="password"
                   variant="standard"
+                  onChange={(e) => {
+                    setFormFields({ ...formFields, password: e.target.value });
+                  }}
                 />
               </Box>
               <div
@@ -67,16 +104,8 @@ const Login = () => {
                 <Button
                   variant="outlined"
                   color="primary"
-                  onClick={() => {
-                    dispatch(
-                      setActiveProfile({
-                        email: "mrsinghspecialist@gmail.com",
-                        name: "Sarabjeet Singh",
-                        password: "Agbdlcid",
-                        userType: "Regular",
-                      })
-                    );
-                  }}
+                  disabled={!Boolean(formFields?.email && formFields.password)}
+                  onClick={handleLogin}
                 >
                   Login
                 </Button>

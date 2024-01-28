@@ -14,6 +14,14 @@ const initialState: ProfileState = {
     password: "",
     userType: "Regular",
   },
+  users: [
+    {
+      name: "Admin",
+      email: "admin@task.com",
+      password: "Agbdlcid",
+      userType: "Admin",
+    },
+  ],
 };
 
 const profile = createSlice({
@@ -31,6 +39,9 @@ const profile = createSlice({
     logout: (state) => {
       state.actingProfile = initialState.actingProfile;
     },
+    registerProfile: (state, action: { payload: User }) => {
+      state.users = [...(state.users ?? []), action.payload];
+    },
   },
 });
 
@@ -42,6 +53,11 @@ export const selectActingProfile = createSelector(
   (profileState) => profileState.actingProfile
 );
 
-export const { setActiveProfile, logout } = profile.actions;
+export const selectAllUsers = createSelector(
+  selectProfileState,
+  (profileState) => profileState.users ?? []
+);
+
+export const { setActiveProfile, logout, registerProfile } = profile.actions;
 
 export default profile.reducer;
