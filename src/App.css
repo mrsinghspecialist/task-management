@@ -9,3 +9,13 @@
 .App-link {
   color: #61dafb;
 }
+
+.body {
+  min-height: 90vh;
+  overflow: auto;
+  background: whitesmoke;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}

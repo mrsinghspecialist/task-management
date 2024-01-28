@@ -9,18 +9,7 @@ function App() {
       <header className="App-header">
         <Header />
       </header>
-      <div
-        className="body"
-        style={{
-          minHeight: "90vh",
-          overflow: "auto",
-          background: "whitesmoke",
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignContent: "center",
-        }}
-      >
+      <div className="body">
         <AppContent />
       </div>
       <div>

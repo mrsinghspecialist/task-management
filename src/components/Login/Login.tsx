@@ -14,10 +14,12 @@ import {
 } from "../../store/slices/profileSlice";
 import { useState } from "react";
 import { RegistrationForm } from "../RegistrationForm/RegistrationForm";
-import { Navigate, redirect, useNavigate } from "react-router";
+import { Navigate } from "react-router";
+import useStyles from "./Login.styles";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const classes = useStyles();
   const allUsers = useSelector(selectAllUsers);
   const actingProfile = useSelector(selectActingProfile);
 
@@ -52,27 +54,11 @@ const Login = () => {
   };
   return (
     <>
-      <div
-        style={{
-          height: "90vh",
-          background: "whitesmoke",
-          display: "flex",
-          width: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-          alignContent: "center",
-        }}
-      >
-        <Card sx={{ width: "500px", paddingX: "20px" }}>
+      <div className={classes.container}>
+        <Card className={classes.cardContainer}>
           <CardContent>
             <h2>Login</h2>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "20px",
-              }}
-            >
+            <Box className={classes.formControl}>
               <div>
                 <TextField
                   sx={{ width: "100%" }}

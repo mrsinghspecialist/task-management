@@ -69,9 +69,7 @@ export const NewTask = ({
 
   const validateForm = () => {
     return Boolean(
-      formFields.taskTitle.trim() &&
-        formFields.status &&
-        formFields.associatedUser
+      formFields.taskTitle && formFields.status && formFields.associatedUser
     );
   };
 
