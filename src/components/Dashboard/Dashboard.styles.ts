@@ -17,6 +17,11 @@ const useStyles = makeStyles((theme: Theme) =>
     tableContainer: {
       width: "100%",
     },
+    dataGrid: {
+      "& .MuiDataGrid-virtualScroller": {
+        minHeight: "100px",
+      },
+    },
   })
 );
 export default useStyles;

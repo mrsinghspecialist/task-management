@@ -7,8 +7,9 @@ import { Box, Button, Modal } from "@mui/material";
 import { CustomizedDialogBox } from "../../features/CustomizedDialogBox/CustomizedDialogBox";
 import { deleteTask, selectAllTasks } from "../../store/slices/tasksSlice";
 import { NewTask } from "../NewTask/NewTask";
-import { DataGrid, GridValueGetterParams } from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import useStyles from "./Dashboard.styles";
+import React from "react";
 
 const Dashboard = () => {
   const actingProfile = useSelector(selectActingProfile);
@@ -52,6 +53,7 @@ const Dashboard = () => {
         <div style={{ marginTop: "60px" }}>
           <DataGrid
             rows={tasks}
+            className={classes.dataGrid}
             rowSelection={false}
             columns={
               actingProfile.userType === "Regular"
