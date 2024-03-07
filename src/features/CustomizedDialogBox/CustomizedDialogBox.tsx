@@ -1,4 +1,3 @@
-// import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
   Button,
@@ -40,7 +39,7 @@ export const CustomizedDialogBox = (props: {
     >
       <DialogTitle className={classes.dialogTitle}>
         <Box className={classes.dialogTitleBox}>
-          <img src={error} width={32} height={32} />
+          <img src={error} width={32} height={32} alt="Error" />
           {props.dialogTitle ? props.dialogTitle : "Confirmation"}
         </Box>
         {props.showCloseIcon ? (
