@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/task-management/static/css/main.1a8b801d.css",
+    "main.js": "/task-management/static/js/main.7b4c4e61.js",
+    "static/js/671.12ccdee0.chunk.js": "/task-management/static/js/671.12ccdee0.chunk.js",
+    "static/js/285.4a916c66.chunk.js": "/task-management/static/js/285.4a916c66.chunk.js",
+    "static/js/208.838bc69d.chunk.js": "/task-management/static/js/208.838bc69d.chunk.js",
+    "static/js/787.9c395c4d.chunk.js": "/task-management/static/js/787.9c395c4d.chunk.js",
+    "static/js/231.813d7420.chunk.js": "/task-management/static/js/231.813d7420.chunk.js",
+    "static/js/788.97e7ad4e.chunk.js": "/task-management/static/js/788.97e7ad4e.chunk.js",
+    "index.html": "/task-management/index.html",
+    "static/media/error.svg": "/task-management/static/media/error.36ee555b146c3ce80f61605628187720.svg",
+    "main.1a8b801d.css.map": "/task-management/static/css/main.1a8b801d.css.map",
+    "main.7b4c4e61.js.map": "/task-management/static/js/main.7b4c4e61.js.map",
+    "671.12ccdee0.chunk.js.map": "/task-management/static/js/671.12ccdee0.chunk.js.map",
+    "285.4a916c66.chunk.js.map": "/task-management/static/js/285.4a916c66.chunk.js.map",
+    "208.838bc69d.chunk.js.map": "/task-management/static/js/208.838bc69d.chunk.js.map",
+    "787.9c395c4d.chunk.js.map": "/task-management/static/js/787.9c395c4d.chunk.js.map",
+    "231.813d7420.chunk.js.map": "/task-management/static/js/231.813d7420.chunk.js.map",
+    "788.97e7ad4e.chunk.js.map": "/task-management/static/js/788.97e7ad4e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a8b801d.css",
+    "static/js/main.7b4c4e61.js"
+  ]
+}

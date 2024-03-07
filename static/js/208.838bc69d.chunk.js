@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktask_management=self.webpackChunktask_management||[]).push([[208],{7208:(e,t,i)=>{i.r(t),i.d(t,{default:()=>l});var s=i(1087),n=i(184);const l=()=>(0,n.jsx)("div",{style:{display:"flex",fontSize:"xx-large",height:"90vh",textAlign:"center",alignItems:"center",width:"500px"},children:(0,n.jsxs)("div",{style:{display:"flex",flexDirection:"column"},children:["You're not authorized to view the page.",(0,n.jsx)("br",{}),(0,n.jsx)(s.rU,{to:"/",style:{marginTop:"20px"},children:"Visit Home"})]})})}}]);
+//# sourceMappingURL=208.838bc69d.chunk.js.map
